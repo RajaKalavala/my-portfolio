@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { Code, Smartphone, Globe, Users } from 'lucide-react'
+import { Code, Smartphone, Globe, Users, Database, Zap } from 'lucide-react'
 
 const About: React.FC = () => {
   const [ref, inView] = useInView({
@@ -12,24 +12,27 @@ const About: React.FC = () => {
   const highlights = [
     {
       icon: <Code size={24} />,
-      title: 'Web Development',
+      title: 'Full Stack Development',
       description:
-        'Full-stack development with modern frameworks and cloud technologies',
+        'End-to-end web and mobile application development with modern technologies',
     },
     {
-      icon: <Smartphone size={24} />,
-      title: 'Mobile Development',
-      description: 'Native and cross-platform mobile app development',
+      icon: <Database size={24} />,
+      title: 'Healthcare Solutions',
+      description:
+        'Designing and developing quality-oriented healthcare applications',
     },
     {
       icon: <Globe size={24} />,
-      title: 'Cloud & DevOps',
-      description: 'Deployment, CI/CD, and infrastructure management',
+      title: 'E-Commerce & Server Apps',
+      description:
+        'Robust server applications and e-commerce platform development',
     },
     {
-      icon: <Users size={24} />,
-      title: 'Team Leadership',
-      description: 'Leading development teams and mentoring junior developers',
+      icon: <Zap size={24} />,
+      title: 'Problem Solving',
+      description:
+        'Strong analytical approach with excellent problem-solving skills',
     },
   ]
 
@@ -48,8 +51,8 @@ const About: React.FC = () => {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-secondary-600 dark:text-secondary-400 max-w-2xl mx-auto">
-            A passionate senior software engineer with a proven track record of
-            delivering high-quality solutions
+            An efficient Full Stack Developer with a proven track record in
+            healthcare, e-commerce, and server application development
           </p>
         </motion.div>
 
@@ -60,29 +63,32 @@ const About: React.FC = () => {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}>
             <h3 className="text-2xl font-bold mb-6">
-              Senior Software Engineer with 8+ Years of Experience
+              Efficient Full Stack Developer with 8+ Years of Experience
             </h3>
 
             <div className="space-y-4 text-secondary-600 dark:text-secondary-400">
               <p>
-                I am a dedicated software engineer with over 8 years of
-                experience in web and mobile development. My journey in
-                technology has been driven by a passion for creating innovative
-                solutions that solve real-world problems.
+                I am an efficient Full Stack Developer with over 8 years of
+                experience in developing end-to-end Web and Mobile-based
+                applications. My expertise spans across both backend and
+                frontend technologies, enabling me to deliver comprehensive
+                solutions that meet complex business requirements.
               </p>
 
               <p>
-                Throughout my career, I've worked on diverse projects ranging
-                from enterprise web applications to mobile apps used by millions
-                of users. I specialize in React, Node.js, Python, and mobile
-                development with React Native and Flutter.
+                Throughout my career, I've built a strong history in designing
+                and developing quality-oriented applications across diverse
+                domains including Healthcare, E-Commerce, and Server
+                applications. This experience has given me deep insights into
+                industry-specific challenges and regulatory requirements.
               </p>
 
               <p>
-                I believe in writing clean, maintainable code and staying
-                up-to-date with the latest industry trends and best practices.
-                My approach combines technical expertise with strong
-                problem-solving skills to deliver exceptional user experiences.
+                My approach combines technical expertise with a strong
+                analytical mindset and problem-solving skills. I believe in
+                writing clean, maintainable code and staying current with
+                emerging technologies to deliver exceptional user experiences
+                and robust backend systems.
               </p>
             </div>
 
@@ -101,7 +107,7 @@ const About: React.FC = () => {
                   Email:
                 </span>
                 <span className="ml-2 text-secondary-600 dark:text-secondary-400">
-                  raja@example.com
+                  rajakalavala55@gmail.com
                 </span>
               </div>
               <div>
@@ -109,7 +115,7 @@ const About: React.FC = () => {
                   Location:
                 </span>
                 <span className="ml-2 text-secondary-600 dark:text-secondary-400">
-                  San Francisco, CA
+                  Bengaluru, India
                 </span>
               </div>
               <div>

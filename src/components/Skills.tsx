@@ -8,58 +8,61 @@ const Skills: React.FC = () => {
     threshold: 0.1,
   })
 
-  const skillCategories = [
+  const skills = [
     {
-      title: 'Frontend Development',
-      skills: [
-        { name: 'React', level: 95, color: 'from-blue-500 to-cyan-500' },
-        { name: 'TypeScript', level: 90, color: 'from-blue-600 to-blue-700' },
-        { name: 'Next.js', level: 88, color: 'from-gray-600 to-gray-800' },
-        { name: 'Vue.js', level: 85, color: 'from-green-500 to-green-600' },
-        { name: 'Tailwind CSS', level: 92, color: 'from-cyan-500 to-blue-500' },
-      ],
+      name: 'Angular',
+      level: 90,
+      color: 'from-red-500 to-red-600',
+      icon: '⚡',
     },
     {
-      title: 'Backend Development',
-      skills: [
-        { name: 'Node.js', level: 90, color: 'from-green-600 to-green-700' },
-        { name: 'Python', level: 88, color: 'from-blue-600 to-blue-800' },
-        { name: 'Express.js', level: 85, color: 'from-gray-600 to-gray-700' },
-        { name: 'Django', level: 80, color: 'from-green-700 to-green-800' },
-        { name: 'PostgreSQL', level: 85, color: 'from-blue-500 to-blue-600' },
-      ],
+      name: 'JavaScript/TypeScript',
+      level: 95,
+      color: 'from-yellow-500 to-yellow-600',
+      icon: '🟡',
     },
     {
-      title: 'Mobile Development',
-      skills: [
-        { name: 'React Native', level: 88, color: 'from-blue-500 to-cyan-500' },
-        { name: 'Flutter', level: 85, color: 'from-blue-600 to-blue-700' },
-        { name: 'iOS (Swift)', level: 75, color: 'from-gray-600 to-gray-700' },
-        {
-          name: 'Android (Kotlin)',
-          level: 78,
-          color: 'from-green-600 to-green-700',
-        },
-      ],
+      name: 'HTML',
+      level: 90,
+      color: 'from-orange-500 to-orange-600',
+      icon: '🌐',
     },
     {
-      title: 'DevOps & Cloud',
-      skills: [
-        { name: 'AWS', level: 85, color: 'from-orange-500 to-orange-600' },
-        { name: 'Docker', level: 80, color: 'from-blue-500 to-blue-600' },
-        { name: 'Kubernetes', level: 75, color: 'from-blue-600 to-blue-700' },
-        { name: 'CI/CD', level: 82, color: 'from-green-500 to-green-600' },
-        {
-          name: 'Terraform',
-          level: 70,
-          color: 'from-purple-500 to-purple-600',
-        },
-      ],
+      name: 'CSS',
+      level: 85,
+      color: 'from-blue-500 to-blue-600',
+      icon: '🎨',
+    },
+    {
+      name: 'C#',
+      level: 88,
+      color: 'from-purple-500 to-purple-600',
+      icon: '💎',
+    },
+    {
+      name: 'ASP.NET MVC',
+      level: 85,
+      color: 'from-green-500 to-green-600',
+      icon: '🟢',
+    },
+    {
+      name: 'Web API',
+      level: 90,
+      color: 'from-indigo-500 to-indigo-600',
+      icon: '🔗',
+    },
+    {
+      name: 'Microsoft SQL Server',
+      level: 82,
+      color: 'from-teal-500 to-teal-600',
+      icon: '🗄️',
     },
   ]
 
   return (
-    <section id="skills" className="section-padding">
+    <section
+      id="skills"
+      className="section-padding bg-white dark:bg-secondary-900">
       <div className="container-custom">
         <motion.div
           ref={ref}
@@ -68,103 +71,72 @@ const Skills: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Skills & <span className="gradient-text">Technologies</span>
+            Technical <span className="gradient-text">Skills</span>
           </h2>
           <p className="text-secondary-600 dark:text-secondary-400 max-w-2xl mx-auto">
-            A comprehensive set of skills developed over 8+ years of
-            professional experience
+            My expertise in modern web technologies and enterprise development
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {skillCategories.map((category, categoryIndex) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {skills.map((skill, index) => (
             <motion.div
-              key={categoryIndex}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-              className="bg-white dark:bg-secondary-700 rounded-lg shadow-lg p-6 card-hover">
-              <h3 className="text-xl font-bold mb-6 text-center">
-                {category.title}
-              </h3>
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group relative">
+              <div className="bg-white dark:bg-secondary-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-secondary-200 dark:border-secondary-700">
+                {/* Skill Icon */}
+                <div className="text-center mb-4">
+                  <div className="text-4xl mb-2">{skill.icon}</div>
+                  <h3 className="text-lg font-semibold text-secondary-900 dark:text-white">
+                    {skill.name}
+                  </h3>
+                </div>
 
-              <div className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skillIndex}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{
-                      duration: 0.6,
-                      delay: categoryIndex * 0.2 + skillIndex * 0.1,
-                    }}>
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-medium text-secondary-800 dark:text-secondary-200">
-                        {skill.name}
-                      </span>
-                      <span className="text-sm text-secondary-600 dark:text-secondary-400">
-                        {skill.level}%
-                      </span>
-                    </div>
+                {/* Progress Bar */}
+                <div className="relative">
+                  <div className="w-full bg-secondary-200 dark:bg-secondary-700 rounded-full h-3 overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={inView ? { width: `${skill.level}%` } : {}}
+                      transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+                      className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative overflow-hidden`}>
+                      <div className="absolute inset-0 bg-white opacity-20 animate-pulse"></div>
+                    </motion.div>
+                  </div>
 
-                    <div className="w-full bg-secondary-200 dark:bg-secondary-600 rounded-full h-2">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={inView ? { width: `${skill.level}%` } : {}}
-                        transition={{
-                          duration: 1,
-                          delay: categoryIndex * 0.2 + skillIndex * 0.1 + 0.3,
-                        }}
-                        className={`h-2 rounded-full bg-gradient-to-r ${skill.color}`}
-                      />
-                    </div>
-                  </motion.div>
-                ))}
+                  {/* Percentage */}
+                  <div className="text-center mt-2">
+                    <span className="text-sm font-medium text-secondary-600 dark:text-secondary-400">
+                      {skill.level}%
+                    </span>
+                  </div>
+                </div>
+
+                {/* Hover Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-blue-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Additional Skills */}
+        {/* Additional Skills Summary */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16">
-          <h3 className="text-2xl font-bold text-center mb-8">
-            Additional <span className="gradient-text">Skills</span>
-          </h3>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {[
-              'Git',
-              'REST APIs',
-              'GraphQL',
-              'MongoDB',
-              'Redis',
-              'Elasticsearch',
-              'Jest',
-              'Cypress',
-              'Webpack',
-              'Vite',
-              'Nginx',
-              'Jenkins',
-              'Agile',
-              'Scrum',
-              'JIRA',
-              'Figma',
-              'Adobe XD',
-              'Sketch',
-            ].map((skill, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.8 + index * 0.05 }}
-                className="bg-secondary-100 dark:bg-secondary-600 px-4 py-2 rounded-lg text-center text-sm font-medium text-secondary-700 dark:text-secondary-300 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-200">
-                {skill}
-              </motion.div>
-            ))}
+          className="mt-16 text-center">
+          <div className="bg-gradient-to-r from-primary-50 to-blue-50 dark:from-secondary-800 dark:to-secondary-700 rounded-2xl p-8">
+            <h3 className="text-2xl font-bold mb-4 text-secondary-900 dark:text-white">
+              Full Stack Expertise
+            </h3>
+            <p className="text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
+              Specialized in Angular ecosystem, .NET framework, and modern web
+              development. Experienced in building scalable applications with
+              clean architecture and best practices.
+            </p>
           </div>
         </motion.div>
       </div>
